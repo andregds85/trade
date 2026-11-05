@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TradeVault — Biblioteca de Operações</title>
+  <meta name="description" content="Biblioteca de vídeos de trading: análises, estratégias e resultados das operações." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== BARRA SUPERIOR ===== -->
+  <header class="topbar">
+    <div class="topbar-row">
+      <a href="#" class="brand">
+        <span class="brand-mark">▲</span>
+        <span class="brand-name">TRADE<em>VAULT</em></span>
+      </a>
+
+      <nav class="nav">
+        <a href="#videos" class="nav-link active">Vídeos</a>
+        <a href="#estrategias" class="nav-link">Estratégias</a>
+        <a href="#indicadores" class="nav-link">Indicadores</a>
+        <a href="#acoes" class="nav-link">Ações</a>
+        <a href="https://cortextradings.com/home/" class="nav-link" target="_blank" rel="noopener">Plataforma</a>
+        <a href="https://finviz.com/" class="nav-link" target="_blank" rel="noopener">Finviz</a>
+        <a href="https://sociedadedogain.com.br/" class="nav-link" target="_blank" rel="noopener">Sociedade</a>
+      </nav>
+    </div>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track" id="tickerTrack"></div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="badge">● AO VIVO · MERCADO 24/7</span>
+        <h1>Todas as operações<br /><span class="grad">gravadas em um só lugar.</span></h1>
+        <p class="lead">
+          Assista direto no site, sem sair da página. Análises, entradas, saídas e
+          resultados — tudo organizado na grade abaixo.
+        </p>
+        <div class="hero-actions">
+          <a href="#videos" class="btn btn-primary">▶ Ver biblioteca</a>
+          <a href="#stats" class="btn btn-ghost">Ver resultados</a>
+        </div>
+        <ul class="hero-stats" id="stats">
+          <li><strong id="statVideos">0</strong><span>vídeos</span></li>
+          <li><strong id="statWin">0%</strong><span>win rate</span></li>
+          <li><strong id="statHours">0h</strong><span>de conteúdo</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-chart" aria-hidden="true">
+        <div class="chart-head">
+          <span class="pair">WINFUT</span>
+          <span class="price up">+2,48%</span>
+        </div>
+        <div class="candles" id="candles"></div>
+        <div class="chart-foot">
+          <span class="up">▲ 138.420</span>
+          <span class="down">▼ 136.905</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VÍDEOS ===== -->
+  <main class="section" id="videos">
+    <div class="section-head">
+      <div>
+        <h2 class="title">Biblioteca de vídeos</h2>
+        <p class="sub-title">Clique em um card para assistir no player do site.</p>
+      </div>
+
+      <div class="tools">
+        <input type="search" id="search" class="search" placeholder="Buscar vídeo..." autocomplete="off" />
+        <div class="filters" id="filters"></div>
+      </div>
+    </div>
+
+    <!-- GRID PEDIDA: auto auto auto -->
+    <div class="video-grid" id="videoGrid"></div>
+
+    <p class="empty" id="empty" hidden>Nenhum vídeo encontrado para essa busca.</p>
+  </main>
+
+  <!-- ===== ESTRATÉGIAS ===== -->
+  <section class="section" id="estrategias">
+    <div class="section-head">
+      <div>
+        <h2 class="title">Estratégias</h2>
+        <p class="sub-title">Setups e padrões explicados passo a passo — clique para assistir aqui mesmo.</p>
+      </div>
+      <div class="tools">
+        <span class="count-line" style="margin: 0"><b>1</b> aula em destaque</span>
+      </div>
+    </div>
+
+    <article class="feature">
+      <div class="feature-media" id="featureMedia">
+        <img
+          src="https://i.ytimg.com/vi/h9GUwGJ5UYo/maxresdefault.jpg"
+          alt="O Padrão Secreto no Mini Índice que Paga em QUALQUER Horário!"
+          onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/h9GUwGJ5UYo/hqdefault.jpg'"
+        />
+        <span class="badge-cat c-Estrategias">Estratégias</span>
+        <button class="play-big" type="button" aria-label="Reproduzir vídeo">▶</button>
+      </div>
+
+      <div class="feature-body">
+        <span class="chip">Aula em destaque</span>
+        <h3>O Padrão Secreto no Mini Índice que Paga em QUALQUER Horário!</h3>
+        <p class="feature-text">
+          Leitura de gráfico e formação de padrão no Mini Índice, com regra de entrada,
+          stop e gestão de saída — aplicável em qualquer horário da sessão.
+        </p>
+        <div class="feature-actions">
+          <button class="btn btn-primary" type="button" id="featurePlay">▶ Assistir agora</button>
+          <a
+            class="btn btn-ghost"
+            href="https://www.youtube.com/watch?v=h9GUwGJ5UYo"
+            target="_blank"
+            rel="noopener"
+            >Abrir no YouTube ↗</a
+          >
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ===== INDICADORES ===== -->
+  <section class="section" id="indicadores">
+    <div class="section-head">
+      <div>
+        <h2 class="title">Indicadores</h2>
+        <p class="sub-title">Ferramentas e estudos usados nas operações — clique para abrir.</p>
+      </div>
+      <div class="tools">
+        <input type="search" id="indSearch" class="search" placeholder="Buscar indicador..." autocomplete="off" />
+        <div class="filters" id="indFilters"></div>
+      </div>
+    </div>
+
+    <div class="ind-grid" id="indGrid"></div>
+    <p class="empty" id="indEmpty" hidden>Nenhum indicador encontrado.</p>
+  </section>
+
+  <!-- ===== AÇÕES DA B3 ===== -->
+  <section class="section" id="acoes">
+    <div class="section-head">
+      <div>
+        <h2 class="title">Ações da B3</h2>
+        <p class="sub-title">Todas as ações listadas na Bolsa — clique para abrir no TradingView.</p>
+      </div>
+      <div class="tools">
+        <input type="search" id="acaoSearch" class="search" placeholder="Buscar por ticker ou empresa..." autocomplete="off" />
+        <div class="filters" id="acaoFilters"></div>
+      </div>
+    </div>
+
+    <div class="count-line" id="acaoCount">—</div>
+    <div class="acao-grid" id="acaoGrid"></div>
+    <p class="empty" id="acaoEmpty" hidden>Nenhuma ação encontrada para essa busca.</p>
+  </section>
+
+  <!-- ===== ABERTURA DE MERCADO ===== -->
+  <section class="section" id="abertura">
+    <div class="section-head">
+      <div>
+        <h2 class="title">Abertura de mercado</h2>
+        <p class="sub-title">Vídeos da abertura — clique para assistir no player do site.</p>
+      </div>
+    </div>
+
+    <div class="video-grid" id="aberturaGrid"></div>
+  </section>
+
+  <!-- ===== ARTIFICIAL ===== -->
+  <section class="section" id="artificial">
+    <div class="section-head">
+      <div>
+        <h2 class="title">Artificial</h2>
+        <p class="sub-title">Vídeos de inteligência artificial no trading — clique para assistir no player do site.</p>
+      </div>
+    </div>
+
+    <div class="video-grid" id="artificialGrid"></div>
+    <p class="empty" id="artificialEmpty" hidden>Nenhum vídeo nessa seção ainda.</p>
+  </section>
+
+  <footer class="footer">
+    <span>© 2026 TradeVault · Feito com HTML, CSS e JavaScript</span>
+    <span class="foot-note">Conteúdo educacional. Não é recomendação de investimento.</span>
+  </footer>
+
+  <!-- ===== MODAL / PLAYER ===== -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Player de vídeo">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="Fechar">✕</button>
+
+      <div class="player-wrap">
+        <video id="player" controls playsinline preload="metadata"></video>
+        <iframe
+          id="ytPlayer"
+          title="Player YouTube"
+          hidden
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="modal-info">
+        <div>
+          <span class="chip" id="modalCat">—</span>
+          <h3 id="modalTitle">—</h3>
+          <p id="modalMeta">—</p>
+        </div>
+        <div class="modal-nav">
+          <button class="nav-btn" id="prevBtn" title="Anterior">‹</button>
+          <button class="nav-btn" id="nextBtn" title="Próximo">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
