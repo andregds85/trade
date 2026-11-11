@@ -497,7 +497,7 @@ function initNavSpy() {
     },
     { rootMargin: "-45% 0px -50% 0px" }
   );
-  ["videos", "estrategias", "indicadores", "acoes"].forEach((id) => {
+  ["videos", "estrategias", "indicadores", "mesa", "acoes"].forEach((id) => {
     const sec = document.getElementById(id);
     if (sec) obs.observe(sec);
   });

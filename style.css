@@ -428,6 +428,101 @@ img, video { max-width: 100%; }
 @media (max-width: 760px) { .ind-grid { grid-template-columns: auto; } .ind-card { width: min(360px, 88vw); } }
 
 /* =========================================================
+   MESA PROPRIETÁRIA
+   ========================================================= */
+.mesa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 20px;
+}
+
+.mesa-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 24px;
+  background:
+    radial-gradient(600px 220px at 0% 0%, rgba(0, 229, 138, .10), transparent 65%),
+    linear-gradient(180deg, var(--card-2), var(--card));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  animation: fadeUp .45s ease both;
+}
+.mesa-card::before {
+  content: "";
+  position: absolute; inset: 0 auto 0 0; width: 4px;
+  background: linear-gradient(180deg, var(--green), var(--blue));
+}
+.mesa-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 229, 138, .45);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .5);
+}
+
+.mesa-ico {
+  flex: 0 0 auto;
+  width: 54px; height: 54px; border-radius: 15px;
+  display: grid; place-items: center; font-size: 24px;
+  background: rgba(0, 229, 138, .12);
+  border: 1px solid rgba(0, 229, 138, .3);
+}
+
+.mesa-ico img {
+  width: 30px; height: 30px; object-fit: contain; display: block;
+}
+.mesa-ico.has-img {
+  background: #fff;
+  border-color: rgba(255, 255, 255, .3);
+}
+
+.mesa-body { flex: 1; min-width: 0; }
+.mesa-body h3 {
+  font-size: clamp(19px, 2.2vw, 23px);
+  letter-spacing: -.5px;
+  margin-top: 9px;
+}
+.mesa-body p {
+  color: var(--muted); font-size: 14.5px; line-height: 1.6; margin-top: 8px;
+}
+
+.mesa-tag {
+  display: inline-block;
+  font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+  letter-spacing: .6px; text-transform: uppercase;
+  color: var(--green);
+  padding: 3px 9px; border-radius: 999px;
+  border: 1px solid rgba(0, 229, 138, .35);
+  background: rgba(0, 229, 138, .1);
+}
+
+.mesa-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--mono); font-size: 13px; font-weight: 700;
+  color: var(--blue);
+  transition: color .2s;
+}
+.mesa-card:hover .mesa-link { color: var(--green); }
+
+.mesa-go {
+  flex: 0 0 auto;
+  width: 36px; height: 36px; border-radius: 11px;
+  display: grid; place-items: center;
+  background: rgba(255, 255, 255, .05); border: 1px solid var(--line);
+  color: var(--txt); font-size: 15px; transition: .2s;
+}
+.mesa-card:hover .mesa-go {
+  background: var(--green); color: #04120c; border-color: var(--green);
+}
+
+@media (max-width: 760px) {
+  .mesa-card { padding: 20px; }
+}
+
+/* =========================================================
    AÇÕES DA B3
    ========================================================= */
 .count-line {
