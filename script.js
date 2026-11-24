@@ -100,6 +100,17 @@ videos.unshift({
   section: true,
 });
 
+/* ---- Seção "Estratégia Média Móvel 20" (vídeo fora da grade principal) ---- */
+videos.unshift({
+  id: videos.length,
+  src: "24_11Media20.mp4",
+  title: "Estratégia Média Móvel 20 — regra de entrada, stop e saída",
+  category: "Média Móvel 20",
+  date: "24/11/2026",
+  time: "",
+  media20: true,
+});
+
 /* ---- Seção "Artificial" (vídeo fora da grade principal) ---- */
 videos.unshift({
   id: videos.length,
@@ -145,7 +156,7 @@ function renderGrid() {
   const term = searchInput.value.trim().toLowerCase();
 
   visible = videos.filter((v) => {
-    if (v.section || v.abertura || v.artificial) return false; // fica só na sua seção
+    if (v.section || v.abertura || v.artificial || v.media20) return false; // fica só na sua seção
     const okCat = activeFilter === "Todos" || v.category === activeFilter;
     const okTerm =
       !term ||
@@ -234,6 +245,17 @@ function renderArtificial() {
   box.innerHTML = "";
   list.forEach((v, i) => box.appendChild(createCard(v, i)));
   const emptyEl = document.getElementById("artificialEmpty");
+  if (emptyEl) emptyEl.hidden = list.length > 0;
+}
+
+/* ---- Seção "Estratégia Média Móvel 20" ---- */
+function renderMedia20() {
+  const box = document.getElementById("media20Grid");
+  if (!box) return;
+  const list = videos.filter((v) => v.media20);
+  box.innerHTML = "";
+  list.forEach((v, i) => box.appendChild(createCard(v, i)));
+  const emptyEl = document.getElementById("media20Empty");
   if (emptyEl) emptyEl.hidden = list.length > 0;
 }
 
@@ -1085,6 +1107,7 @@ acaoSearch.addEventListener("input", renderAcoes);
 renderFilters();
 renderGrid();
 renderAbertura();
+renderMedia20();
 renderArtificial();
 renderIndFilters();
 renderIndicators();

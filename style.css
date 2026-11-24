@@ -252,6 +252,7 @@ img, video { max-width: 100%; }
 .badge-cat.c-Sinais { color: var(--red); border-color: rgba(255,77,109,.4); }
 .badge-cat.c-Abertura-de-mercado { color: var(--gold); border-color: rgba(255,206,77,.4); }
 .badge-cat.c-Artificial { color: #c084fc; border-color: rgba(192,132,252,.4); }
+.badge-cat.c-Media-Movel-20 { color: #38e8d0; border-color: rgba(56,232,208,.4); }
 
 .badge-time {
   position: absolute; right: 10px; bottom: 10px;
