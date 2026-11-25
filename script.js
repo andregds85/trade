@@ -126,7 +126,7 @@ videos.unshift({
 /* ---- Vídeo "Site" (arquivo local da pasta do projeto) ---- */
 videos.unshift({
   id: videos.length,
-  src: "video%20Site.mp4",
+  src: "video Site.mp4",
   title: "Vídeo do site — a mesa de operações",
   category: "Institucional",
   date: "26/09/2026",
