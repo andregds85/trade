@@ -18,7 +18,7 @@ const VIDEO_FILES = [
   "2026_07_14_22_24_26.mp4",
 ];
 
-const CATEGORIES = ["Análises", "Estratégias", "Resultados", "Sinais"];
+const CATEGORIES = ["Análises", "Estratégias", "Resultados", "Sinais", "Institucional"];
 
 const TITLES = [
   "Abertura do dia: leitura do gráfico e zonas de interesse",
@@ -121,6 +121,16 @@ videos.unshift({
   date: "27/10/2026",
   time: "",
   artificial: true,
+});
+
+/* ---- Vídeo "Site" (arquivo local da pasta do projeto) ---- */
+videos.unshift({
+  id: videos.length,
+  src: "video%20Site.mp4",
+  title: "Vídeo do site — a mesa de operações",
+  category: "Institucional",
+  date: "26/09/2026",
+  time: "",
 });
 
 /* ---- Elementos ---- */
