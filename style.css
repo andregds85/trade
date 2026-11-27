@@ -593,6 +593,151 @@ img, video { max-width: 100%; }
 }
 
 
+/* =========================================================
+   WIN / WDO — O QUE MOVE A ABERTURA
+   ========================================================= */
+.driver-intro {
+  color: var(--muted); font-size: 15px; line-height: 1.7;
+  max-width: 900px; margin-bottom: 24px;
+}
+.driver-intro strong { color: var(--txt); }
+
+.driver-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.driver-card {
+  --accent: var(--green);
+  position: relative;
+  padding: 22px 24px 20px;
+  color: var(--txt);
+  background:
+    radial-gradient(520px 200px at 0% 0%, rgba(255, 255, 255, .04), transparent 70%),
+    linear-gradient(180deg, var(--card-2), var(--card));
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+  animation: fadeUp .45s ease both;
+}
+.driver-card.up { --accent: var(--green); }
+.driver-card.down { --accent: var(--red); }
+.driver-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, .16);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .5);
+}
+
+.driver-head { display: flex; align-items: center; gap: 14px; }
+.driver-ico {
+  flex: 0 0 auto;
+  width: 46px; height: 46px; border-radius: 13px;
+  display: grid; place-items: center; font-size: 21px;
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--line);
+}
+.driver-title { flex: 1; min-width: 0; }
+.driver-title h3 { font-size: 18px; letter-spacing: -.4px; margin-top: 5px; }
+.driver-tag {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 700;
+  letter-spacing: .6px; text-transform: uppercase;
+  color: var(--accent);
+}
+.driver-arrow {
+  flex: 0 0 auto;
+  font-family: var(--mono); font-size: 15px; font-weight: 700;
+  color: var(--accent);
+}
+
+.driver-list {
+  list-style: none;
+  margin-top: 16px;
+  display: flex; flex-direction: column; gap: 9px;
+}
+.driver-list li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13.5px; line-height: 1.55; color: var(--muted);
+}
+.driver-list li::before {
+  content: "";
+  position: absolute; left: 0; top: .55em;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent); opacity: .85;
+}
+.driver-list b { color: var(--txt); font-weight: 600; }
+
+.opening-note {
+  display: flex; gap: 14px; align-items: flex-start;
+  margin-top: 22px; padding: 18px 20px;
+  background: rgba(255, 206, 77, .07);
+  border: 1px solid rgba(255, 206, 77, .28);
+  border-radius: 16px;
+}
+.opening-note-ico { font-size: 20px; line-height: 1; }
+.opening-note p { color: var(--muted); font-size: 14px; line-height: 1.65; }
+.opening-note b { color: var(--gold); }
+
+.opening-sub {
+  font-size: clamp(19px, 2.2vw, 23px); letter-spacing: -.5px;
+  margin: 34px 0 18px;
+}
+
+.opening-steps {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 10px;
+  counter-reset: step;
+}
+.opening-steps li {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 14px 18px;
+  background: linear-gradient(180deg, var(--card-2), var(--card));
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  transition: border-color .2s ease;
+}
+.opening-steps li:hover { border-color: rgba(77, 155, 255, .4); }
+.step-time {
+  flex: 0 0 auto; min-width: 104px;
+  font-family: var(--mono); font-size: 13px; font-weight: 700;
+  color: var(--blue);
+}
+.step-text { font-size: 13.5px; line-height: 1.6; color: var(--muted); }
+.step-text b { color: var(--txt); font-weight: 600; }
+
+.contract-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0 28px;
+}
+.contract-strip div {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 15px 18px;
+  background: rgba(255, 255, 255, .03);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+}
+.contract-strip span {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .6px;
+  text-transform: uppercase; color: var(--muted);
+}
+.contract-strip b { font-family: var(--mono); font-size: 18px; color: var(--gold); }
+
+.badge-cat.c-WIN-WDO { color: #38e8d0; border-color: rgba(56, 232, 208, .4); }
+
+@media (max-width: 980px) {
+  .driver-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .opening-steps li { flex-direction: column; gap: 6px; }
+  .step-time { min-width: 0; }
+  .contract-strip { grid-template-columns: 1fr; }
+}
+
 /* ---------- SOBRE ---------- */
 .about-card {
   display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap;
@@ -670,6 +815,12 @@ img, video { max-width: 100%; }
 /* =========================================================
    RESPONSIVO
    ========================================================= */
+@media (max-width: 1180px) {
+  .nav-link { padding: 8px 10px; font-size: 13px; }
+  .topbar-row { flex-wrap: wrap; }
+  .nav { flex-wrap: wrap; justify-content: flex-end; }
+}
+
 @media (max-width: 1080px) {
   .video-grid { grid-template-columns: auto auto; }
   .ticker { display: none; }

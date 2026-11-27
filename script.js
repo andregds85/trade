@@ -111,6 +111,17 @@ videos.unshift({
   media20: true,
 });
 
+/* ---- Seção "O que faz o WIN ou o WDO subir ou descer na abertura" ---- */
+videos.unshift({
+  id: videos.length,
+  src: "dolar_win.mp4",
+  title: "O que faz o WIN ou o WDO subir ou descer na abertura",
+  category: "WIN / WDO",
+  date: "27/11/2026",
+  time: "",
+  winWdo: true,
+});
+
 /* ---- Seção "Artificial" (vídeo fora da grade principal) ---- */
 videos.unshift({
   id: videos.length,
@@ -166,7 +177,7 @@ function renderGrid() {
   const term = searchInput.value.trim().toLowerCase();
 
   visible = videos.filter((v) => {
-    if (v.section || v.abertura || v.artificial || v.media20) return false; // fica só na sua seção
+    if (v.section || v.abertura || v.artificial || v.media20 || v.winWdo) return false; // fica só na sua seção
     const okCat = activeFilter === "Todos" || v.category === activeFilter;
     const okTerm =
       !term ||
@@ -266,6 +277,17 @@ function renderMedia20() {
   box.innerHTML = "";
   list.forEach((v, i) => box.appendChild(createCard(v, i)));
   const emptyEl = document.getElementById("media20Empty");
+  if (emptyEl) emptyEl.hidden = list.length > 0;
+}
+
+/* ---- Seção "O que faz o WIN ou o WDO subir ou descer na abertura" ---- */
+function renderWinWdo() {
+  const box = document.getElementById("winWdoGrid");
+  if (!box) return;
+  const list = videos.filter((v) => v.winWdo);
+  box.innerHTML = "";
+  list.forEach((v, i) => box.appendChild(createCard(v, i)));
+  const emptyEl = document.getElementById("winWdoEmpty");
   if (emptyEl) emptyEl.hidden = list.length > 0;
 }
 
@@ -529,7 +551,7 @@ function initNavSpy() {
     },
     { rootMargin: "-45% 0px -50% 0px" }
   );
-  ["videos", "estrategias", "indicadores", "mesa", "acoes"].forEach((id) => {
+  ["videos", "indicadores", "mesa", "acoes", "win-wdo"].forEach((id) => {
     const sec = document.getElementById(id);
     if (sec) obs.observe(sec);
   });
@@ -1118,6 +1140,7 @@ renderFilters();
 renderGrid();
 renderAbertura();
 renderMedia20();
+renderWinWdo();
 renderArtificial();
 renderIndFilters();
 renderIndicators();
